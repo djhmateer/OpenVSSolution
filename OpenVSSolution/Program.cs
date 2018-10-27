@@ -11,7 +11,7 @@ namespace OpenVSSolution
         {
             // cd C:\dev\test\OpenVSSolution
             // dotnet publish -c Release -r win10-x64
-            // open this foldere: C:\dev\test\OpenVSSolution\OpenVSSolution\bin\Release\netcoreapp2.1\win10 - x64
+            // open this folder: C:\dev\test\OpenVSSolution\OpenVSSolution\bin\Release\netcoreapp2.1\win10 - x64
             // copy the entire directory C:\sharedTools\OpenVSSolution
 
             // https://stackoverflow.com/a/48897649/26086 - publishing with dependencies. not sure if works
