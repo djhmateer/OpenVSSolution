@@ -10,11 +10,9 @@ namespace OpenVSSolution
         static void Main()
         {
             // cd C:\dev\test\OpenVSSolution
-            // dotnet publish -c Release -r win10-x64
-            // open this folder: C:\dev\test\OpenVSSolution\OpenVSSolution\bin\Release\netcoreapp2.1\win10 - x64
-            // copy the entire directory C:\sharedTools\OpenVSSolution
+            // dotnet publish -c Release -r win10-x64 -o c:\sharedTools\OpenVSSolution
 
-            // https://stackoverflow.com/a/48897649/26086 - publishing with dependencies. not sure if works
+            // using the -o flag above gives a 66MB directory
             //   An assembly specified in the application dependencies manifest (d.deps.json) was not found:
             // package: 'runtime.win-x64.Microsoft.NETCore.App', version: '2.1.5'
             // path: 'runtimes/win-x64/lib/netcoreapp2.1/Microsoft.CSharp.dll'
