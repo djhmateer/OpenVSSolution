@@ -3,12 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
-// dotnet publish -c Release -r win10-x64 -o c:\sharedTools\OpenVSSolution
-
-// without the -o flag you can get the following when deployed to another machine
-// An assembly specified in the application dependencies manifest (d.deps.json) was not found:
-// package: 'runtime.win-x64.Microsoft.NETCore.App', version: '2.1.5'
-// path: 'runtimes/win-x64/lib/netcoreapp2.1/Microsoft.CSharp.dll'
+// See https://davemateer.com/coding/2018/11/08/Publish-dot-net-core-console-application.html for how to publish and distribute
 
 namespace OpenVSSolution
 {
