@@ -37,7 +37,7 @@ namespace OpenVSSolution
 
             if (vsdiretory.Any(x => x.Name == "Community"))
                 devenvpath += @"Community\Common7\IDE\";
-            else if (vsdiretory.Any(x => x.Name=="Enterprise"))
+            else if (vsdiretory.Any(x => x.Name == "Enterprise"))
                 devenvpath += @"Enterprise\Common7\IDE\";
             else
             {
