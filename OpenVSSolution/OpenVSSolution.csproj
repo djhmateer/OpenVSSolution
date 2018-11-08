@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
+    <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>d</AssemblyName>
   </PropertyGroup>
-
 </Project>
