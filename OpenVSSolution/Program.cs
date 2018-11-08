@@ -3,20 +3,19 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
+// dotnet publish -c Release -r win10-x64 -o c:\sharedTools\OpenVSSolution
+
+// without the -o flag you can get the following when deployed to another machine
+// An assembly specified in the application dependencies manifest (d.deps.json) was not found:
+// package: 'runtime.win-x64.Microsoft.NETCore.App', version: '2.1.5'
+// path: 'runtimes/win-x64/lib/netcoreapp2.1/Microsoft.CSharp.dll'
+
 namespace OpenVSSolution
 {
     class Program
     {
         static void Main()
         {
-            // cd C:\dev\test\OpenVSSolution
-            // dotnet publish -c Release -r win10-x64 -o c:\sharedTools\OpenVSSolution
-
-            // without the -o flag you can get the following when deployed to another machine
-            // An assembly specified in the application dependencies manifest (d.deps.json) was not found:
-            // package: 'runtime.win-x64.Microsoft.NETCore.App', version: '2.1.5'
-            // path: 'runtimes/win-x64/lib/netcoreapp2.1/Microsoft.CSharp.dll'
-
             var currentPath = Directory.GetCurrentDirectory();
 
             // Get the most recently accessed solution file or return null if none
@@ -24,14 +23,13 @@ namespace OpenVSSolution
                 .Where(x => x.Extension == ".sln")
                 .OrderBy(x => x.LastAccessTimeUtc)
                 .FirstOrDefault();
-
             if (slnfile == null)
             {
                 Console.WriteLine("No .sln file found");
                 return;
             }
 
-            // where is VS - Community or Enterprise?
+            // Where is VS - Community or Enterprise?
             var devenvpath = @"C:\Program Files (x86)\Microsoft Visual Studio\2017\";
             var vsdiretory = new DirectoryInfo(devenvpath).GetDirectories();
 
@@ -45,7 +43,8 @@ namespace OpenVSSolution
                 return;
             }
 
-            Console.WriteLine($"{slnfile.Name,-20} : Opening this file! "); // nice console formatting
+            // Call VS in a new process and return to the shell
+            Console.WriteLine($"{slnfile.Name,-20} : Opening this file! "); 
             var proc = new Process();
             proc.StartInfo.FileName = devenvpath + "devenv";
             proc.StartInfo.Arguments = currentPath + @"\" + slnfile.Name;
