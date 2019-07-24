@@ -34,7 +34,7 @@ namespace OpenVSSolution
                 devenvpath += @"2017\";
             else
             {
-                Console.WriteLine($"Neither Visual Studio Community nor Enterprise can be found in {devenvpath}");
+                Console.WriteLine($"Neither Visual Studio Community, Professional nor Enterprise can be found in {devenvpath}");
                 return;
             }
 
@@ -42,11 +42,13 @@ namespace OpenVSSolution
             // Where is VS - Community or Enterprise?
             if (vsDirectory.Any(x => x.Name == "Community"))
                 devenvpath += @"Community\Common7\IDE\";
+            else if (vsDirectory.Any(x => x.Name == "Professional"))
+                devenvpath += @"Professional\Common7\IDE\";
             else if (vsDirectory.Any(x => x.Name == "Enterprise"))
                 devenvpath += @"Enterprise\Common7\IDE\";
             else
             {
-                Console.WriteLine($"Neither Visual Studio Community nor Enterprise can be found in {devenvpath}");
+                Console.WriteLine($"Neither Visual Studio Community, Professional nor Enterprise can be found in {devenvpath}");
                 return;
             }
 
