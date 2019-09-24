@@ -1,6 +1,6 @@
 A .NET Core Console application which will open a .sln file in the current directory with Visual Studio.
 
-Updated to core 2.2 and moved the settings over to appsettings for future versions
+Updated to core 3.0 and moved the settings over to appsettings for future versions
 
 
 # Orignal Author
