@@ -8,10 +8,39 @@ namespace OpenVSSolution
 {
     class Program
     {
-        static void Main()
+        private static string[] _commands = new[]
+        {
+            "--dir", "--target"
+        };
+
+        static void Main(string[] args)
         {
             var currentPath = Directory.GetCurrentDirectory();
+            if (args != null)
+            {
+                foreach (var arg in args)
+                    System.Console.WriteLine(arg);
+            }
 
+            // to parse the options passed in, let's just go for O(n) right now...
+            if (args.Contains(_commands[0]))
+            {
+                // If we have the --dir (directory) option then we should use that folder as the starting point
+                // for now, let's just pass it in as the current path
+                var argPosition = args.ToList().IndexOf(_commands[0]) + 1;
+                currentPath = args[argPosition];
+            }
+
+            if (args.Contains(_commands[1]))
+            {
+                // if we have the --target option then we should try finding what was passed in
+                var arg = args[args.ToList().IndexOf(_commands[1]) + 1];
+                
+                var sln = new DirectoryInfo(currentPath).GetFiles()
+                .Where(x => x.Extension == ".sln")
+                .OrderBy(x => x.LastAccessTime)
+                .FirstOrDefault(x => x.FullName.Contains(arg, StringComparison.OrdinalIgnoreCase));
+            }
             // To debug a certain sln file hard code in the path to test
             // var currentPath = @"c:\dev\test\WebApplication5";
 
