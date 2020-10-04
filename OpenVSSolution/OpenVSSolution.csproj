@@ -1,9 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <RuntimeIdentifiers>win10-x64;osx-x64</RuntimeIdentifiers>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>d</AssemblyName>
-    <!--<PublishTrimmed>true</PublishTrimmed>-->
+    <StartupObject>OpenVSSolution.Program</StartupObject>
+    <ApplicationManifest>d.exe.manifest</ApplicationManifest>
+    <Version>2.0.1</Version>
+    <AssemblyVersion>2.0.1</AssemblyVersion>
+    <FileVersion>2.0.1</FileVersion>
+    <Description>command line utility for opening visual studio (devenv)</Description>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Publish.d\" />
+  </ItemGroup>
 </Project>
