@@ -1,9 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <!--<RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>-->
+    <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>d</AssemblyName>
     <!--<PublishTrimmed>true</PublishTrimmed>-->
+    <!-- added these to use new features -->
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 </Project>
